@@ -3,7 +3,7 @@
 A highly animated, feature-rich, and optimized Next.js Web Application designed for the **Internshala SDE Internship Assignment**. This portal integrates real-time search, robust client-side filters, and several advanced product-focused innovations designed to demonstrate exceptional engineering, modern UX design, and problem-solving capabilities.
 
 📂 **GitHub Repository:** `https://github.com/parv9999/internshala-search`  
-🌐 **Live Deployment:** `https://internshala-search-fawn.vercel.app/`
+🌐 **Live Deployment:** `https://internshala-search-fawn.vercel.app`
 
 ---
 
