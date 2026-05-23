@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+/* ─── CSS Variables / Design Tokens ─────────────────────────────── */
+:root {
+  --clr-bg:            #f5f7ff;
+  --clr-surface:       #ffffff;
+  --clr-surface-2:     #eef1fb;
+  --clr-primary:       #006bff;
+  --clr-primary-light: #e8f0fe;
+  --clr-primary-dark:  #0051cc;
+  --clr-accent:        #7c3aed;
+  --clr-accent-light:  #ede9fe;
+  --clr-success:       #059669;
+  --clr-success-light: #d1fae5;
+  --clr-warning:       #d97706;
+  --clr-warning-light: #fef3c7;
+  --clr-danger:        #dc2626;
+  --clr-text-primary:  #0f172a;
+  --clr-text-secondary:#475569;
+  --clr-text-muted:    #94a3b8;
+  --clr-border:        #e2e8f0;
+  --clr-border-focus:  #006bff;
+
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  18px;
+  --radius-xl:  24px;
+  --radius-full: 9999px;
+
+  --shadow-xs:  0 1px 3px rgba(0,0,0,.06);
+  --shadow-sm:  0 2px 8px rgba(0,0,0,.08);
+  --shadow-md:  0 4px 20px rgba(0,0,0,.10);
+  --shadow-lg:  0 8px 40px rgba(0,107,255,.12);
+  --shadow-card:0 2px 12px rgba(0,0,0,.07);
+  --shadow-card-hover: 0 8px 32px rgba(0,107,255,.15);
+
+  --transition-fast: 0.15s ease;
+  --transition-mid:  0.25s ease;
+  --transition-slow: 0.4s ease;
+
+  --font-base: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* ─── Dark Mode Overrides ───────────────────────────────────────── */
+[data-theme="dark"] {
+  --clr-bg:            #090d16;
+  --clr-surface:       #111827;
+  --clr-surface-2:     #1f2937;
+  --clr-primary-light: #1e293b;
+  --clr-accent-light:  #2d1b4e;
+  --clr-success-light: #064e3b;
+  --clr-warning-light: #78350f;
+  --clr-text-primary:  #f9fafb;
+  --clr-text-secondary:#d1d5db;
+  --clr-text-muted:    #6b7280;
+  --clr-border:        #1f2937;
+  --clr-border-focus:  #3b82f6;
+
+  --shadow-xs:  0 1px 3px rgba(0,0,0,.4);
+  --shadow-sm:  0 2px 8px rgba(0,0,0,.5);
+  --shadow-md:  0 4px 20px rgba(0,0,0,.6);
+  --shadow-lg:  0 8px 40px rgba(0,0,0,.7);
+  --shadow-card:0 4px 12px rgba(0,0,0,.4);
+  --shadow-card-hover: 0 12px 32px rgba(0,107,255,.2);
+}
+
+/* ─── Reset ─────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-base);
+  background: var(--clr-bg);
+  color: var(--clr-text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  transition: background-color var(--transition-mid), color var(--transition-mid), border-color var(--transition-mid);
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+input, select { font-family: inherit; }
+
+/* ─── Utility ────────────────────────────────────────────────────── */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ─── Scrollbar ───────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--clr-surface-2); }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: var(--radius-full); }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* ─── Keyframes ──────────────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ─── Skeleton loader ────────────────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+  background-size: 400px 100%;
+  animation: shimmer 1.4s infinite linear;
+  border-radius: var(--radius-sm);
+}

@@ -1,0 +1,329 @@
+.card {
+  background: var(--clr-surface);
+  border: 1.5px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 20px 22px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: fadeInUp 0.45s ease both;
+  transition: transform var(--transition-mid), box-shadow var(--transition-mid), border-color var(--transition-mid);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(0,107,255,0.03), transparent);
+  opacity: 0;
+  transition: opacity var(--transition-mid);
+  pointer-events: none;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: #b3d1ff;
+}
+
+.card:hover::before { opacity: 1; }
+
+/* ── Badges ─────────────────────────────────── */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-height: 0;
+}
+
+.badge {
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.badgeRemote { background: var(--clr-primary-light); color: var(--clr-primary); }
+.badgePPO    { background: var(--clr-warning-light); color: var(--clr-warning); }
+.badgeIntl   { background: var(--clr-accent-light);  color: var(--clr-accent);  }
+.badgePartTime { background: #fce7f3; color: #be185d; }
+.badgeMatch  { background: linear-gradient(135deg, #7c3aed, #4f46e5); color: #fff; box-shadow: 0 2px 8px rgba(124, 58, 237, 0.4); }
+
+/* ── Body (logo + title) ────────────────────── */
+.body {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.logoWrap {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+}
+
+.logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--clr-border);
+  padding: 4px;
+  background: #fff;
+}
+
+.logoFallback {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--clr-primary-light), #dde9ff);
+  border: 1px solid #c3d8ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--clr-primary);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--clr-text-primary);
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.company {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--clr-text-secondary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: color var(--transition-fast);
+}
+.company:hover { color: var(--clr-primary); }
+
+.premiumDot {
+  color: #f59e0b;
+  font-size: 12px;
+}
+
+/* ── Meta chips ─────────────────────────────── */
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--clr-text-secondary);
+  font-weight: 500;
+}
+
+.metaIcon {
+  width: 14px;
+  height: 14px;
+  color: var(--clr-primary);
+  flex-shrink: 0;
+}
+
+.stipend {
+  color: var(--clr-success);
+  font-weight: 700;
+}
+
+/* ── Divider ────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: var(--clr-border);
+  margin: 0 -2px;
+}
+
+/* ── Footer ─────────────────────────────────── */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.footerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.startDate {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--clr-text-secondary);
+}
+
+.deadline {
+  font-size: 12px;
+  color: var(--clr-warning);
+  font-weight: 500;
+}
+
+.applyBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 9px 20px;
+  background: linear-gradient(135deg, #006bff, #3b8bff);
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0,107,255,.28);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.applyBtn:hover {
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 4px 16px rgba(0,107,255,.40);
+  opacity: 0.95;
+}
+
+/* ── High stipend badge ────────────────────── */
+.badgeHigh {
+  background: var(--clr-success-light);
+  color: var(--clr-success);
+}
+
+/* ── Card Actions (top-right buttons) ────────── */
+.cardActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: absolute;
+  top: 16px;
+  right: 18px;
+}
+
+.iconBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: var(--clr-surface-2);
+  border: 1px solid var(--clr-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--clr-text-secondary);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.iconBtn:hover {
+  transform: scale(1.08);
+  background: var(--clr-primary-light);
+  border-color: #b3d1ff;
+  color: var(--clr-primary);
+}
+
+.iconBtnActive {
+  background: var(--clr-accent-light);
+  border-color: var(--clr-accent);
+  color: var(--clr-accent);
+}
+
+.iconBtnActive:hover {
+  background: var(--clr-accent-light);
+  border-color: var(--clr-accent);
+  color: var(--clr-accent);
+}
+
+/* ── Share Toast ────────────────────────────── */
+.shareToast {
+  position: absolute;
+  top: 54px;
+  right: 18px;
+  background: var(--clr-text-primary);
+  color: var(--clr-surface);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  z-index: 10;
+  animation: scaleIn var(--transition-fast) forwards;
+}
+
+/* ── List Card View Mode ─────────────────────── */
+@media (min-width: 769px) {
+  .listCard {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto auto;
+    gap: 12px;
+    padding: 18px 24px;
+    align-items: center;
+  }
+  
+  .listCard .badges {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  
+  .listCard .body {
+    grid-column: 1;
+    grid-row: 2;
+    padding-right: 48px; /* avoid overlap with cardActions */
+  }
+  
+  .listCard .meta {
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: 4px;
+  }
+  
+  .listCard .divider {
+    display: none;
+  }
+  
+  .listCard .footer {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 8px;
+    height: 100%;
+    margin-left: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .meta { gap: 6px 12px; }
+  .footer { flex-direction: column; align-items: flex-start; }
+  .applyBtn { width: 100%; justify-content: center; }
+}

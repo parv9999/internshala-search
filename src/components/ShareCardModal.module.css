@@ -1,0 +1,337 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn var(--transition-mid) forwards;
+}
+
+.modal {
+  background: var(--clr-surface);
+  border: 1.5px solid var(--clr-border);
+  border-radius: var(--radius-xl);
+  width: 440px;
+  max-width: 100%;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  animation: scaleIn var(--transition-slow) cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  overflow: hidden;
+}
+
+/* ── Header ──────────────────────────────────── */
+.header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--clr-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: var(--clr-text-primary);
+  letter-spacing: -0.2px;
+}
+
+.closeBtn {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clr-text-secondary);
+  font-size: 14px;
+  transition: background var(--transition-fast);
+}
+
+.closeBtn:hover {
+  background: var(--clr-surface-2);
+  color: var(--clr-text-primary);
+}
+
+/* ── Body ────────────────────────────────────── */
+.body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+  max-height: 70vh;
+}
+
+.intro {
+  font-size: 13px;
+  color: var(--clr-text-secondary);
+  line-height: 1.5;
+}
+
+/* ── Ticket ──────────────────────────────────── */
+.ticket {
+  position: relative;
+  border-radius: var(--radius-lg);
+  color: #fff;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.18);
+  overflow: hidden;
+}
+
+/* Gloss layer */
+.gloss {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Gradients by Category */
+.gradTech {
+  background: linear-gradient(135deg, #0b1c4c 0%, #581c87 100%);
+}
+
+.gradDesign {
+  background: linear-gradient(135deg, #b43c08 0%, #be185d 100%);
+}
+
+.gradMarket {
+  background: linear-gradient(135deg, #0d5e56 0%, #0369a1 100%);
+}
+
+.gradDefault {
+  background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+}
+
+.ticketTop {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cardEyebrow {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.3;
+  margin-top: 2px;
+}
+
+.cardCompany {
+  font-size: 13.5px;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.cardBadge {
+  align-self: flex-start;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.15);
+  margin-top: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Dash Divider & Notches */
+.dashDivider {
+  height: 1px;
+  border-top: 2px dashed rgba(255, 255, 255, 0.25);
+  margin: 4px -24px;
+  position: relative;
+}
+
+.notchLeft, .notchRight {
+  position: absolute;
+  top: -10px;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  background: var(--clr-surface);
+}
+
+.notchLeft {
+  left: -10px;
+}
+
+.notchRight {
+  right: -10px;
+}
+
+/* Ticket Bottom */
+.ticketBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.cardMetaGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  flex: 1;
+}
+
+.metaBox {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.metaLbl {
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.metaVal {
+  font-size: 12.5px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.refCode {
+  color: #fef08a; /* Soft golden tint */
+  letter-spacing: 0.5px;
+}
+
+/* QR Code Grid Layout */
+.qrWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.qrCode {
+  width: 72px;
+  height: 72px;
+  background: #fff;
+  border-radius: var(--radius-sm);
+  padding: 6px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.qrPixel {
+  background: #f1f5f9;
+  border-radius: 1px;
+}
+
+.qrPixelFilled {
+  background: #0f172a;
+}
+
+.qrCaption {
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+}
+
+/* Share Link Input */
+.shareLinkRow {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.linkInput {
+  flex: 1;
+  padding: 8px 12px;
+  font-size: 12.5px;
+  border: 1.5px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  background: var(--clr-surface-2);
+  color: var(--clr-text-secondary);
+  outline: none;
+}
+
+.copyBtn {
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--clr-primary);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.copyBtn:hover {
+  background: var(--clr-primary-dark);
+}
+
+.copyBtnSuccess {
+  background: var(--clr-success);
+}
+
+.copyBtnSuccess:hover {
+  background: var(--clr-success);
+}
+
+/* ── Footer ──────────────────────────────────── */
+.footer {
+  padding: 14px 20px;
+  border-top: 1px solid var(--clr-border);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  background: var(--clr-surface-2);
+}
+
+.downloadBtn {
+  padding: 9px 18px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--clr-text-primary);
+  border: 1.5px solid var(--clr-border);
+  background: var(--clr-surface);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.downloadBtn:hover {
+  background: var(--clr-surface-2);
+  border-color: var(--clr-text-secondary);
+}
+
+.cancelBtn {
+  padding: 9px 18px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--clr-text-secondary);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+}
+
+.cancelBtn:hover {
+  opacity: 0.9;
+}

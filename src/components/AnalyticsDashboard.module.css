@@ -1,0 +1,333 @@
+.container {
+  background: var(--clr-surface);
+  border: 1.5px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 24px;
+  overflow: hidden;
+  animation: scaleIn var(--transition-mid) ease;
+  transition: border-color var(--transition-mid), box-shadow var(--transition-mid);
+}
+
+.container:hover {
+  border-color: rgba(0, 107, 255, 0.25);
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Header ──────────────────────────────────── */
+.header {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--clr-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, var(--clr-surface) 0%, var(--clr-surface-2) 100%);
+}
+
+.headerTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sparkleIcon {
+  font-size: 18px;
+}
+
+.headerTitle h3 {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--clr-text-primary);
+  letter-spacing: -0.2px;
+}
+
+.liveBadge {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--clr-primary);
+  background: var(--clr-primary-light);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.8px;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+:global([data-theme="dark"]) .liveBadge {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+}
+
+.collapseBtn {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--clr-text-secondary);
+  cursor: pointer;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  transition: all var(--transition-fast);
+}
+
+.collapseBtn:hover {
+  background: var(--clr-surface-2);
+  color: var(--clr-text-primary);
+}
+
+/* ── Body Layout ─────────────────────────────── */
+.body {
+  padding: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  transition: max-height var(--transition-slow) ease, padding var(--transition-slow) ease;
+  max-height: 500px;
+  overflow: hidden;
+}
+
+.bodyCollapsed {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-bottom-width: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.cardTitle {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--clr-text-muted);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+/* ── Location Breakdown (Circle) ─────────────── */
+.doughnutWrapper {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  margin: 0 auto;
+}
+
+.svgCircle {
+  width: 100%;
+  height: 100%;
+}
+
+.circleBg {
+  fill: none;
+  stroke: var(--clr-surface-2);
+}
+
+.circleFg {
+  fill: none;
+  stroke: var(--clr-primary);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.doughnutText {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.percentValue {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--clr-text-primary);
+  line-height: 1.1;
+}
+
+.percentLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--clr-text-muted);
+}
+
+.doughnutLegend {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--clr-text-secondary);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legendDot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+}
+
+.legendDotRemote {
+  background: var(--clr-primary);
+}
+
+.legendDotOnsite {
+  background: var(--clr-surface-2);
+  border: 1px solid var(--clr-border);
+}
+
+/* ── Hot Profiles Bar Chart ──────────────────── */
+.barChart {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.barRow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: var(--radius-md);
+  background: var(--clr-surface-2);
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.barRow:hover {
+  background: var(--clr-primary-light);
+  border-color: #b3d1ff;
+}
+
+.barRowActive {
+  background: var(--clr-primary-light);
+  border-color: var(--clr-primary);
+}
+
+.barInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12.5px;
+}
+
+.barName {
+  font-weight: 600;
+  color: var(--clr-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 80%;
+}
+
+.barCount {
+  font-weight: 800;
+  color: var(--clr-primary);
+}
+
+.barContainer {
+  height: 6px;
+  background: var(--clr-border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  background: linear-gradient(to right, #006bff, #7c3aed);
+  border-radius: var(--radius-full);
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Stipend Gauge ───────────────────────────── */
+.gaugeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gaugeValWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.gaugeLabel {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--clr-text-muted);
+  letter-spacing: 0.8px;
+}
+
+.gaugeValue {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--clr-success);
+  line-height: 1.1;
+}
+
+.monthSuffix {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--clr-text-muted);
+}
+
+.scaleBar {
+  height: 8px;
+  background: var(--clr-surface-2);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.scaleFill {
+  height: 100%;
+  background: linear-gradient(to right, #10b981, #059669);
+  border-radius: var(--radius-full);
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scaleLabels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--clr-text-muted);
+}
+
+.gaugeTip {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--clr-text-secondary);
+  line-height: 1.5;
+  background: var(--clr-surface-2);
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 960px) {
+  .body {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .body {
+    padding: 16px;
+  }
+  
+  .gaugeValue {
+    font-size: 22px;
+  }
+}

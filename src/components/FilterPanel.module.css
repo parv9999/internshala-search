@@ -1,0 +1,235 @@
+.panel {
+  width: 280px;
+  flex-shrink: 0;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: sticky;
+  top: 80px;
+  max-height: calc(100vh - 96px);
+  overflow-y: auto;
+  box-shadow: var(--shadow-sm);
+  animation: slideInLeft 0.4s ease;
+}
+
+/* ── Panel header ───────────────────────────── */
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid var(--clr-border);
+  position: sticky;
+  top: 0;
+  background: var(--clr-surface);
+  z-index: 2;
+}
+
+.panelTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--clr-text-primary);
+}
+
+.filterBadge {
+  background: var(--clr-primary);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: var(--radius-full);
+  line-height: 1.6;
+}
+
+.clearBtn {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--clr-primary);
+  background: var(--clr-primary-light);
+  border: none;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+.clearBtn:hover { background: #d0e4ff; }
+
+/* ── WFH Toggle ─────────────────────────────── */
+.toggleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--clr-border);
+}
+
+.toggleLabel {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--clr-text-primary);
+}
+
+.toggle {
+  width: 44px;
+  height: 24px;
+  background: var(--clr-border);
+  border-radius: var(--radius-full);
+  padding: 2px;
+  cursor: pointer;
+  transition: background var(--transition-mid);
+  display: flex;
+  align-items: center;
+  border: none;
+}
+
+.toggleOn { background: var(--clr-primary); }
+
+.toggleThumb {
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0,0,0,.2);
+  transition: transform var(--transition-mid);
+}
+.toggleOn .toggleThumb { transform: translateX(20px); }
+
+/* ── Filter groups ──────────────────────────── */
+.group {
+  border-bottom: 1px solid var(--clr-border);
+}
+
+.groupHeader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--clr-text-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  text-align: left;
+}
+.groupHeader:hover { background: var(--clr-surface-2); }
+
+.chevron {
+  color: var(--clr-text-muted);
+  transition: transform var(--transition-mid);
+}
+.chevronOpen { transform: rotate(180deg); }
+
+.groupBody {
+  padding: 4px 20px 16px;
+  animation: fadeIn 0.2s ease;
+}
+
+/* ── Checkbox list ──────────────────────────── */
+.checkboxList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 7px 12px;
+  font-size: 13px;
+  border: 1.5px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  background: var(--clr-surface-2);
+  color: var(--clr-text-primary);
+  margin-bottom: 8px;
+  transition: border-color var(--transition-fast);
+  outline: none;
+}
+.searchInput:focus { border-color: var(--clr-primary); background: #fff; }
+
+.checkboxItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+.checkboxItem:hover { background: var(--clr-primary-light); }
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--clr-primary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.checkboxLabel {
+  font-size: 13px;
+  color: var(--clr-text-secondary);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.showMore {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--clr-primary);
+  margin-top: 4px;
+  padding: 4px 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-align: left;
+  transition: opacity var(--transition-fast);
+}
+.showMore:hover { opacity: 0.75; }
+
+.noResults {
+  font-size: 12.5px;
+  color: var(--clr-text-muted);
+  padding: 4px 0;
+}
+
+/* ── Stipend slider ─────────────────────────── */
+.stipendWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stipendValue {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--clr-primary);
+}
+
+.slider {
+  width: 100%;
+  accent-color: var(--clr-primary);
+  cursor: pointer;
+  height: 4px;
+}
+
+.sliderLabels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--clr-text-muted);
+  font-weight: 500;
+}
+
+@media (max-width: 960px) {
+  .panel {
+    width: 100%;
+    position: static;
+    max-height: none;
+  }
+}
